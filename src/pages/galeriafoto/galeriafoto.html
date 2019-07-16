@@ -1,0 +1,38 @@
+<ion-header class="header" color="primary">
+    <ion-navbar color="primary">
+        <ion-title>Galeria de fotos</ion-title>
+        <ion-buttons end>
+          <button ion-button clear icon-only (click)="photoActionSheet()">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list no-lines *ngIf="uploading?.length > 0">
+    <ion-list-header text-uppercase>
+      Subiendo
+    </ion-list-header>
+    <ion-item *ngFor="let photo of uploading">
+      <ion-thumbnail item-start>
+        <img src="data:image/png;base64,{{photo.foto}}"/>
+      </ion-thumbnail>
+      <h2 *ngIf="photo.date_created">{{calendar(photo.date_created)}}</h2>
+      <p>{{getStatus(photo.eliminado)}}</p>
+    </ion-item>
+  </ion-list>
+  <ion-list no-lines *ngIf="photos?.length > 0">
+    <ion-list-header text-uppercase>
+      Subidas
+    </ion-list-header>
+    <ion-item *ngFor="let photo of photos | orderBy: '-date_created'" (press)="actionSheet(photo)">
+      <ion-thumbnail item-start>
+        <img src="{{url}}{{photo.foto}}"/>
+      </ion-thumbnail>
+      <h2 *ngIf="photo.date_created">{{calendar(photo.date_created)}}</h2>
+      <p>{{getStatus(photo.eliminado)}}</p>
+      <button ion-button clear item-end (click)="showPhoto(url,photo.foto,calendar(photo.date_created))">Ver</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Home</ion-title>
+        <ion-buttons left>
+            <button ion-button icon-only clear menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content class="contenido" has-bouncing="false">
+    <div *ngIf="!registrado" class="vhalign">
+        <div class="logo"></div>
+        <div class="login" (click)="login_app()">Login</div>
+    </div>
+    <ion-item *ngIf="registrado" class="init_1" (click)="page1()">
+        Inspecciones
+    </ion-item>
+</ion-content>

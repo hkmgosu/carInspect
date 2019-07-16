@@ -1,0 +1,44 @@
+<ion-header class="header" color="primary">
+    <ion-navbar color="primary">
+        <ion-title>Detalle de inspecci&oacute;n</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list padding>
+        <ion-item>
+            <h2>{{item.patente | uppercase}}</h2>
+            <p>Patente</p>
+        </ion-item>
+        <ion-item>
+            <h2>{{item.marca}} - {{item.modelo}}</h2>
+            <p>Marca - Modelo</p>
+        </ion-item>
+        <ion-item *ngIf="item.ano">
+            <h2>{{item.ano}}</h2>
+            <p>A&ntilde;o</p>
+        </ion-item>
+        <ion-item>
+            <h2>{{item.dueno_nombre}} {{item.dueno_apellido}}</h2>
+            <p>Nombre due&ntilde;o</p>
+        </ion-item>
+        <ion-item>
+            <h2>{{item.correo_cliente}}</h2>
+            <p>Correo del cliente</p>
+        </ion-item>
+    </ion-list>
+    <div class="productos clearfix">
+        
+        <div class="producto" (click)='formulario()'>
+            <div class="b1"></div>
+            <div class="txt">Formulario</div>
+        </div>
+        
+        <div class="producto" (click)='goToGaleria()'>
+            <div class="b2"></div>
+            <div class="txt">Foto</div>
+        </div>
+        
+    </div>
+    {{msg}}
+</ion-content>

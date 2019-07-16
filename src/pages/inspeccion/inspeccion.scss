@@ -1,0 +1,24 @@
+page-inspeccion {
+    .productos{
+        .producto{
+            width: 44%;
+            margin: 0px 3% 5px 3%;
+            float: left;
+            .b1{
+                background: url('../assets/icon/alarm.png') no-repeat center center;
+                height: 74px;
+            }
+            .b2{
+                background: url('../assets/icon/alarm2.png') no-repeat center center;
+                height: 74px;
+            }
+            img{
+                width: 100%;
+            }
+            .txt{
+                text-align: center;
+                font-size: 1.2em;
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Inspecciones</ion-title>
+        <ion-buttons left>
+            <button ion-button icon-only menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button icon-only (click)="openCreateModal()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-searchbar [(ngModel)]="searchTerm" debounce="250" (ionInput)="setFilteredItems()"></ion-searchbar>
+    <ion-list padding>
+        <ion-item *ngFor="let item of filterItems" (click)="goToDetail(item)">
+            <h2 ion-text color="primary-b"><strong>{{item.patente | uppercase}}</strong></h2>
+            <h4 ion-text *ngIf="item.marca && item.modelo">{{item.marca}} - {{item.modelo}}</h4>
+            <h4 ion-text *ngIf="item.marca && !item.modelo">{{item.marca}}</h4>
+            <h4 ion-text *ngIf="!item.marca && item.modelo">{{item.modelo}}</h4>
+            <p>{{formatDate(item.fecha)}}</p>
+        </ion-item>
+    </ion-list>
+</ion-content>

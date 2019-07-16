@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Formulario de Ingreso</ion-title>
+        <ion-buttons right>
+            <button ion-button clear icon-only (click)="close()">
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-content padding>
+        <h2 ion-text>Ingresar nuevo</h2>
+        <form [formGroup]="newInspeccionForm">
+            <ion-item>
+                <ion-label color="primary-b" stacked>Patente</ion-label>
+                <ion-input type="text" formControlName="patente" placeholder="Ej: UA8571" upperCase></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary-b" stacked>Marca</ion-label>
+                <ion-input type="text" formControlName="marca" placeholder="Ej: Chevrolet"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary-b" stacked>Modelo</ion-label>
+                <ion-input type="text" formControlName="modelo" placeholder="Ej: Corsa"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary-b" stacked>Correo Cliente</ion-label>
+                <ion-input type="email" formControlName="correo" placeholder="Ej: diegomez13@hotmail.com"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary-b" stacked>Nombre Cliente</ion-label>
+                <ion-input type="text" formControlName="nombre" placeholder="Ej: Diego"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary-b" stacked>Apellido Cliente</ion-label>
+                <ion-input type="text" formControlName="apellido" placeholder="Ej: Gomez"></ion-input>
+            </ion-item>
+            <button ion-button [disabled]="!newInspeccionForm.valid" style="display: block; width: 60%; margin: 10px auto 0 auto; padding: 10px 0" (click)="save()">Enviar</button>
+        </form>
+    </ion-content>
+</ion-content>

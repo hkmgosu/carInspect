@@ -1,0 +1,574 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Formulario</ion-title>
+        <ion-buttons right>
+            <button ion-button clear icon-only (click)="close(formData.value)">
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-content class="contacto" padding>
+        <form [formGroup]="formData">
+            <h2 ion-text>Datos due&ntilde;o</h2>
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Nombre:</ion-label>
+                    <ion-input type='text' formControlName="dueno_nombre" (ionBlur)="blur('dueno_nombre', formData.value.dueno_nombre)" placeholder="Ej: Diego"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Apellido:</ion-label>
+                    <ion-input type='text' formControlName="dueno_apellido" (ionBlur)="blur('dueno_apellido', formData.value.dueno_apellido)" placeholder="Ej: Gomez"></ion-input>
+                </ion-item>
+            </ion-list>
+            <h2 ion-text>Datos del veh&iacute;culo</h2>
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Marca:</ion-label>
+                    <ion-input type='text' formControlName="marca" (ionBlur)="blur('marca', formData.value.marca)" placeholder="Ej: Audi"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Modelo:</ion-label>
+                    <ion-input type='text' formControlName="modelo" (ionBlur)="blur('modelo', formData.value.modelo)" placeholder="Ej: A3"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Cilindradra:</ion-label>
+                    <ion-input type='number' formControlName="cilindrada" (ionBlur)="blur('cilindrada', formData.value.cilindrada)" placeholder="Ej: 1600"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>A&ntilde;o:</ion-label>
+                    <ion-input type='number' formControlName="ano" (ionBlur)="blur('ano', formData.value.ano)" placeholder="Ej: 2012"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Kilometraje:</ion-label>
+                    <ion-input type='number' formControlName="kilometraje" (ionBlur)="blur('kilometraje', formData.value.kilometraje)" placeholder="Ej: 26235"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Placa Patente:</ion-label>
+                    <ion-input type='text' formControlName="patente" (ionBlur)="blur('patente', formData.value.patente)" placeholder="Ej: UABS71" upperCase></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Numero de Chasis:</ion-label>
+                    <ion-input type='text' formControlName="nchasis" (ionBlur)="blur('nchasis', formData.value.nchasis)" placeholder="(VIN)"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>&iquest;Tiene Revisiones en Marca?</ion-label>
+                    <ion-select formControlName="revision_marca" (ionChange)="blur('revision_marca', formData.value.revision_marca)">
+                        <ion-option value='0'>No</ion-option>
+                        <ion-option value='1'>Si</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+            <h2 ion-text>Documentos</h2>
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Seguro Obligatorio:</ion-label>
+                    <ion-checkbox item-right formControlName="seguro_obligatorio" checked="{{formData.value.seguro_obligatorio}}" (ionChange)="blur('seguro_obligatorio', formData.value.seguro_obligatorio)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Padr&oacute;n / Inscripci&oacute;n RNVM:</ion-label>
+                    <ion-checkbox item-right formControlName="padron" checked="{{formData.value.padron}}" (ionChange)="blur('padron', formData.value.padron)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Permiso de Circulaci&oacute;n:</ion-label>
+                    <ion-checkbox item-right formControlName="permiso_circulacion" checked="{{formData.value.permiso_circulacion}}" (ionChange)="blur('permiso_circulacion', formData.value.permiso_circulacion)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>An&aacute;lisis de Gases:</ion-label>
+                    <ion-checkbox item-right formControlName="analisis_gases" checked="{{formData.value.analisis_gases}}" (ionChange)="blur('analisis_gases', formData.value.analisis_gases)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Rev. T&eacute;cnica / Homologaci&oacute;n:</ion-label>
+                    <ion-checkbox item-right formControlName="revision_tecnica" checked="{{formData.value.revision_tecnica}}" (ionChange)="blur('revision_tecnica', formData.value.revision_tecnica)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Manual del Propietario:</ion-label>
+                    <ion-checkbox item-right formControlName="manual_propietario" checked="{{formData.value.manual_propietario}}" (ionChange)="blur('manual_propietario', formData.value.manual_propietario)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Libro de mantenciones:</ion-label>
+                    <ion-checkbox item-right formControlName="libro_mantenciones" checked="{{formData.value.libro_mantenciones}}" (ionChange)="blur('libro_mantenciones', formData.value.libro_mantenciones)"></ion-checkbox>
+                </ion-item>
+            </ion-list>
+            <h2 ion-text>Caracter&iacute;sticas T&eacute;cnicas</h2>
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Transmisi&oacute;n:</ion-label>
+                    <ion-select formControlName="transmision" (ionChange)="blur('transmision', formData.value.transmision)">
+                        <ion-option value='Mecanica'>Mec&aacute;nica</ion-option>
+                        <ion-option value='Automatica'>Autom&aacute;tica</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Combustible:</ion-label>
+                    <ion-select formControlName="combustible" (ionChange)="blur('combustible', formData.value.combustible)">
+                        <ion-option value='Gasolina'>Gasolina</ion-option>
+                        <ion-option value='Diesel'>Diesel</ion-option>
+                        <ion-option value='Eléctrico'>El&eacute;ctrico</ion-option>
+                        <ion-option value='Híbrido'>H&iacute;brido</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Tipo de Carrocer&iacute;a:</ion-label>
+                    <ion-input type='text' formControlName="carroceria" (ionBlur)="blur('carroceria', formData.value.carroceria)" placeholder="Ej: Sed&aacute;n"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Tracci&oacute;n:</ion-label>
+                    <ion-select formControlName="traccion" (ionChange)="blur('traccion', formData.value.traccion)">
+                        <ion-option value='4x2'>4x2</ion-option>
+                        <ion-option value='4x4'>4x4</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Direcci&oacute;n:</ion-label>
+                    <ion-select formControlName="direccion" (ionChange)="blur('direccion', formData.value.direccion)">
+                        <ion-option value='Mec&aacute;nica'>Mec&aacute;nica</ion-option>
+                        <ion-option value='Asistida (Hidr&aacute;ulica)'>Asistida (Hidr&aacute;ulica)</ion-option>
+                        <ion-option value='El&eacute;ctrica'>El&eacute;ctrica</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+            <h2 ion-text>Equipamiento Interior:</h2>
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Aire acondicionado:</ion-label>
+                    <ion-checkbox item-right formControlName="aire_acondicionado" checked="{{formData.value.aire_acondicionado}}" (ionChange)="blur('aire_acondicionado', formData.value.aire_acondicionado)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Climatizador:</ion-label>
+                    <ion-checkbox item-right formControlName="climatizador" checked="{{formData.value.climatizador}}" (ionChange)="blur('climatizador', formData.value.climatizador)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Alarma:</ion-label>
+                    <ion-checkbox item-right formControlName="alarma" checked="{{formData.value.alarma}}" (ionChange)="blur('alarma', formData.value.alarma)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Cierre Centralizado:</ion-label>
+                    <ion-checkbox item-right formControlName="cierre_centralizado" checked="{{formData.value.cierre_centralizado}}" (ionChange)="blur('cierre_centralizado', formData.value.cierre_centralizado)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Vidrios El&eacute;ctricos:</ion-label>
+                    <ion-checkbox item-right formControlName="vidrios_electricos" checked="{{formData.value.vidrios_electricos}}" (ionChange)="blur('vidrios_electricos', formData.value.vidrios_electricos)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Tapiz de Cuero:</ion-label>
+                    <ion-checkbox item-right formControlName="asiento_cuero" checked="{{formData.value.asiento_cuero}}" (ionChange)="blur('asiento_cuero', formData.value.asiento_cuero)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Velocidad Crucero:</ion-label>
+                    <ion-checkbox item-right formControlName="velocidad_crucero" checked="{{formData.value.velocidad_crucero}}" (ionChange)="blur('velocidad_crucero', formData.value.velocidad_crucero)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Radio Desmontable:</ion-label>
+                    <ion-checkbox item-right formControlName="radio_desmontable" checked="{{formData.value.radio_desmontable}}" (ionChange)="blur('radio_desmontable', formData.value.radio_desmontable)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Bluetooth:</ion-label>
+                    <ion-checkbox item-right formControlName="bluetooth" checked="{{formData.value.bluetooth}}" (ionChange)="blur('bluetooth', formData.value.bluetooth)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Volante Regulable:</ion-label>
+                    <ion-checkbox item-right formControlName="volante_regulable" checked="{{formData.value.volante_regulable}}" (ionChange)="blur('volante_regulable', formData.value.volante_regulable)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Autos con tres corridas de asientos:</ion-label>
+                    <ion-checkbox item-right formControlName="corridas_asiento" checked="{{formData.value.corridas_asiento}}" (ionChange)="blur('corridas_asiento', formData.value.corridas_asiento)"></ion-checkbox>
+                </ion-item>
+            </ion-list>
+            <h2 ion-text>Equipamiento Exterior:</h2>
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Llantas Aleacion:</ion-label>
+                    <ion-checkbox item-right formControlName="llantas_aleacion" checked="{{formData.value.llantas_aleacion}}" (ionChange)="blur('llantas_aleacion', formData.value.llantas_aleacion)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Neblineros:</ion-label>
+                    <ion-checkbox item-right formControlName="neblineros" checked="{{formData.value.neblineros}}" (ionChange)="blur('neblineros', formData.value.neblineros)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>L&aacute;minas de Seguridad:</ion-label>
+                    <ion-checkbox item-right formControlName="laminas_seguridad" checked="{{formData.value.laminas_seguridad}}" (ionChange)="blur('laminas_seguridad', formData.value.laminas_seguridad)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Sunroof:</ion-label>
+                    <ion-checkbox item-right formControlName="sunroof" checked="{{formData.value.sunroof}}" (ionChange)="blur('sunroof', formData.value.sunroof)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Techo panor&aacute;mico:</ion-label>
+                    <ion-checkbox item-right formControlName="techo_panoramico" checked="{{formData.value.techo_panoramico}}" (ionChange)="blur('techo_panoramico', formData.value.techo_panoramico)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Espejos El&eacute;ctricos:</ion-label>
+                    <ion-checkbox item-right formControlName="espejos_electricos" checked="{{formData.value.espejos_electricos}}" (ionChange)="blur('espejos_electricos', formData.value.espejos_electricos)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Espejos Abatibles:</ion-label>
+                    <ion-checkbox item-right formControlName="espejos_abatibles" checked="{{formData.value.espejos_abatibles}}" (ionChange)="blur('espejos_abatibles', formData.value.espejos_abatibles)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Espejos R&iacute;gidos:</ion-label>
+                    <ion-checkbox item-right formControlName="espejos_rigidos" checked="{{formData.value.espejos_rigidos}}" (ionChange)="blur('espejos_rigidos', formData.value.espejos_rigidos)"></ion-checkbox>
+                </ion-item>
+            </ion-list>
+            <h2 ion-text>Seguridad:</h2>
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>ABS:</ion-label>
+                    <ion-checkbox item-right formControlName="abs" checked="{{formData.value.abs}}" (ionChange)="blur('abs', formData.value.abs)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Airbags:</ion-label>
+                    <ion-checkbox item-right formControlName="airbags" checked="{{formData.value.airbags}}" (ionChange)="blur('airbags', formData.value.airbags)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Control de Tracci&oacute;n:</ion-label>
+                    <ion-checkbox item-right formControlName="control_traccion" checked="{{formData.value.control_traccion}}" (ionChange)="blur('control_traccion', formData.value.control_traccion)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Control de Estabilidad:</ion-label>
+                    <ion-checkbox item-right formControlName="control_estabilidad" checked="{{formData.value.control_estabilidad}}" (ionChange)="blur('control_estabilidad', formData.value.control_estabilidad)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Camara de retroceso:</ion-label>
+                    <ion-checkbox item-right formControlName="camara_retroceso" checked="{{formData.value.camara_retroceso}}" (ionChange)="blur('camara_retroceso', formData.value.camara_retroceso)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Sensor de estacionamiento:</ion-label>
+                    <ion-checkbox item-right formControlName="sensor_estacionamiento" checked="{{formData.value.sensor_estacionamiento}}" (ionChange)="blur('sensor_estacionamiento', formData.value.sensor_estacionamiento)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Cinturones de seguridad:</ion-label>
+                    <ion-checkbox item-right formControlName="cinturon_seguridad" checked="{{formData.value.cinturon_seguridad}}" (ionChange)="blur('cinturon_seguridad', formData.value.cinturon_seguridad)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Sistema de anclaje "ISO FIX":</ion-label>
+                    <ion-checkbox item-right formControlName="sistema_anclaje" checked="{{formData.value.sistema_anclaje}}" (ionChange)="blur('sistema_anclaje', formData.value.sistema_anclaje)"></ion-checkbox>
+                </ion-item>
+            </ion-list>
+            <h2 ion-text>Accesorios:</h2>
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Llave de encendido:</ion-label>
+                    <ion-checkbox item-right formControlName="llave_encendido" checked="{{formData.value.llave_encendido}}" (ionChange)="blur('llave_encendido', formData.value.llave_encendido)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label color="primary-b" stacked>Segunda de encendido:</ion-label>
+                  <ion-checkbox item-right formControlName="segunda_llave" checked="{{formData.value.segunda_llave}}" (ionChange)="blur('segunda_llave', formData.value.segunda_llave)"></ion-checkbox>
+              </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Rueda de repuesto:</ion-label>
+                    <ion-checkbox item-right formControlName="rueda_repuesto" checked="{{formData.value.rueda_repuesto}}" (ionChange)="blur('rueda_repuesto', formData.value.rueda_repuesto)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Gata:</ion-label>
+                    <ion-checkbox item-right formControlName="gata" checked="{{formData.value.gata}}" (ionChange)="blur('gata', formData.value.gata)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Llave de rueda:</ion-label>
+                    <ion-checkbox item-right formControlName="llave_rueda" checked="{{formData.value.llave_rueda}}" (ionChange)="blur('llave_rueda', formData.value.llave_rueda)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Kit de seguridad:</ion-label>
+                    <ion-checkbox item-right formControlName="kit_seguridad" checked="{{formData.value.kit_seguridad}}" (ionChange)="blur('kit_seguridad', formData.value.kit_seguridad)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Antena:</ion-label>
+                    <ion-checkbox item-right formControlName="antena" checked="{{formData.value.antena}}" (ionChange)="blur('antena', formData.value.antena)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Sistema de audio:</ion-label>
+                    <ion-checkbox item-right formControlName="sistema_audio" checked="{{formData.value.sistema_audio}}" (ionChange)="blur('sistema_audio', formData.value.sistema_audio)"></ion-checkbox>
+                </ion-item>
+            </ion-list>
+            <h2 ion-text>Exterior</h2>
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Estado de pintura:</ion-label>
+                    <ion-select formControlName="ext1" (ionChange)="blur('ext1', formData.value.ext1)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Ralladuras en carroceria:</ion-label>
+                    <ion-select formControlName="ext2" (ionChange)="blur('ext2', formData.value.ext2)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Abolladuras en carrocer&iacute;a:</ion-label>
+                    <ion-select formControlName="ext3" (ionChange)="blur('ext3', formData.value.ext3)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Evidencia de alg&uacute;n da&ntilde;o mal reparado:</ion-label>
+                    <ion-checkbox item-right formControlName="ext4" checked="{{formData.value.ext4}}" (ionChange)="blur('ext4', formData.value.ext4)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Separaciones irregulares entre partes de la carrocer&iacute;a:</ion-label>
+                    <ion-select formControlName="ext5" (ionChange)="blur('ext5', formData.value.ext5)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Partes de la carrocer&iacute;a de diferente color:</ion-label>
+                    <ion-checkbox item-right formControlName="ext6" checked="{{formData.value.ext6}}" (ionChange)="blur('ext6', formData.value.ext6)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Puntos con &oacute;xido:</ion-label>
+                    <ion-checkbox item-right formControlName="ext7" checked="{{formData.value.ext7}}" (ionChange)="blur('ext7', formData.value.ext7)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>&iquest;Tiene parabrisas original?</ion-label>
+                    <ion-checkbox item-right formControlName="ext8" checked="{{formData.value.ext8}}" (ionChange)="blur('ext8', formData.value.ext8)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>&iquest;Los restantes vidrios son originales?</ion-label>
+                    <ion-checkbox item-right formControlName="ext9" checked="{{formData.value.ext9}}" (ionChange)="blur('ext9', formData.value.ext9)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Parabrisas o alg&uacute;n vidrio quebrado</ion-label>
+                    <ion-checkbox item-right formControlName="ext10" checked="{{formData.value.ext10}}" (ionChange)="blur('ext10', formData.value.ext10)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Plumillas limpiaparabrisa da&ntilde;adas</ion-label>
+                    <ion-select formControlName="ext11" (ionChange)="blur('ext11', formData.value.ext11)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Estado de llantas o tapas de rueda</ion-label>
+                    <ion-select formControlName="ext12" (ionChange)="blur('ext12', formData.value.ext12)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Neum&aacute;ticos de diferentes medidas</ion-label>
+                    <ion-checkbox item-right formControlName="ext13" checked="{{formData.value.ext13}}" (ionChange)="blur('ext13', formData.value.ext13)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Neum&aacute;ticos de diferentes marcas</ion-label>
+                    <ion-checkbox item-right formControlName="ext14" checked="{{formData.value.ext14}}" (ionChange)="blur('ext14', formData.value.ext14)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Estado de los neum&aacute;ticos</ion-label>
+                    <ion-select formControlName="ext15" (ionChange)="blur('ext15', formData.value.ext15)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                  <ion-label color="primary-b" stacked>Estado de amortiguadores</ion-label>
+                  <ion-select formControlName="ext16" (ionChange)="blur('ext16', formData.value.ext16)">
+                      <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                  </ion-select>
+                </ion-item>
+              <ion-item>
+                <ion-label color="primary-b" stacked>Estado de pastillas</ion-label>
+                <ion-select formControlName="ext17" (ionChange)="blur('ext17', formData.value.ext17)">
+                    <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                </ion-select>
+              </ion-item>
+              <ion-item>
+                <ion-label color="primary-b" stacked>Estado de Fuelles Homocinética</ion-label>
+                <ion-select formControlName="ext18" (ionChange)="blur('ext18', formData.value.ext18)">
+                    <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+            <h2 ion-text>Interior</h2>
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Goma del pedal del freno</ion-label>
+                    <ion-select formControlName="ints1" (ionChange)="blur('ints1', formData.value.ints1)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Manubrio y palanca de cambios</ion-label>
+                    <ion-select formControlName="ints2" (ionChange)="blur('ints2', formData.value.ints2)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Estado de asientos</ion-label>
+                    <ion-select formControlName="ints3" (ionChange)="blur('ints3', formData.value.ints3)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Estado de tapiz</ion-label>
+                    <ion-select formControlName="ints4" (ionChange)="blur('ints4', formData.value.ints4)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Estado del tablero</ion-label>
+                    <ion-select formControlName="ints5" (ionChange)="blur('ints5', formData.value.ints5)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Encienden todas las luces</ion-label>
+                    <ion-checkbox item-right formControlName="ints6" checked="{{formData.value.ints6}}" (ionChange)="blur('ints6', formData.value.ints6)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Todos los accesorios funcionan</ion-label>
+                    <ion-checkbox item-right formControlName="ints7" checked="{{formData.value.ints7}}" (ionChange)="blur('ints7', formData.value.ints7)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>&iquest;El ventilador de aire es silencioso?</ion-label>
+                    <ion-checkbox item-right formControlName="ints8" checked="{{formData.value.ints8}}" (ionChange)="blur('ints8', formData.value.ints8)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>&iquest;Funciona el ventilador de aire en todas sus velocidades?</ion-label>
+                    <ion-checkbox item-right formControlName="ints9" checked="{{formData.value.ints9}}" (ionChange)="blur('ints9', formData.value.ints9)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Estado del aire acondicionado</ion-label>
+                    <ion-select formControlName="ints10" (ionChange)="blur('ints10', formData.value.ints10)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Puertas abren/cierran suavemente</ion-label>
+                    <ion-select formControlName="ints11" (ionChange)="blur('ints11', formData.value.ints11)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Olores en el interior</ion-label>
+                    <ion-select formControlName="ints12" (ionChange)="blur('ints12', formData.value.ints12)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Existe evidencia de ingreso de agua o humedad bajo las alfombras, sunroof o ventanas</ion-label>
+                    <ion-select formControlName="ints13" (ionChange)="blur('ints13', formData.value.ints13)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+            <h2 ion-text>Motor</h2>
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Mangueras r&iacute;gidas o quebradizas al tacto</ion-label>
+                    <ion-select formControlName="motor1" (ionChange)="blur('motor1', formData.value.motor1)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Mangueras sin sus abrazaderas</ion-label>
+                    <ion-select formControlName="motor2" (ionChange)="blur('motor2', formData.value.motor2)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Niveles de flu&iacute;dos</ion-label>
+                    <ion-select formControlName="motor3" (ionChange)="blur('motor3', formData.value.motor3)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Bornes de bater&iacute;a</ion-label>
+                    <ion-select formControlName="motor4" (ionChange)="blur('motor4', formData.value.motor4)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>La bater&iacute;a tiene m&aacute;s de 4 a&ntilde;os de antiguedad</ion-label>
+                    <ion-checkbox item-right formControlName="motor5" checked="{{formData.value.motor5}}" (ionChange)="blur('motor5', formData.value.motor5)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Grietas en las correas</ion-label>
+                    <ion-select formControlName="motor6" (ionChange)="blur('motor6', formData.value.motor6)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Cables sueltos sin su revestimiento</ion-label>
+                    <ion-select formControlName="motor7" (ionChange)="blur('motor7', formData.value.motor7)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Fuga de alg&uacute;n l&iacute;quido</ion-label>
+                    <ion-select formControlName="motor8" (ionChange)="blur('motor8', formData.value.motor8)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Estado del filtro de aire</ion-label>
+                    <ion-select formControlName="motor9" (ionChange)="blur('motor9', formData.value.motor9)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Se realiza lectura con Scanner</ion-label>
+                    <ion-select formControlName="lectura_escaner" (ionChange)="blur('lectura_escaner', formData.value.lectura_escaner)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+            <h2 ion-text>Motor en Funcionamiento</h2>
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Ruidos extra&ntilde;os al encender el motor</ion-label>
+                    <ion-select formControlName="motorfun1" (ionChange)="blur('motorfun1', formData.value.motorfun1)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>&iquest;Funcionan las luces del tablero?</ion-label>
+                    <ion-checkbox item-right formControlName="motorfun2" checked="{{formData.value.motorfun2}}" (ionChange)="blur('motorfun2', formData.value.motorfun2)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>&iquest;Se mantiene encendida la luz del airbag?</ion-label>
+                    <ion-checkbox item-right formControlName="motorfun3" checked="{{formData.value.motorfun3}}" (ionChange)="blur('motorfun3', formData.value.motorfun3)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>&iquest;Se mantiene encendida la luz del Check Engine?</ion-label>
+                    <ion-checkbox item-right formControlName="motorfun4" checked="{{formData.value.motorfun4}}" (ionChange)="blur('motorfun4', formData.value.motorfun4)"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Humo al encender</ion-label>
+                    <ion-select formControlName="motorfun5" (ionChange)="blur('motorfun5', formData.value.motorfun5)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Humo al acelerar</ion-label>
+                    <ion-select formControlName="motorfun6" (ionChange)="blur('motorfun6', formData.value.motorfun6)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Motor en ralent&iacute;</ion-label>
+                    <ion-select formControlName="motorfun7" (ionChange)="blur('motorfun7', formData.value.motorfun7)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>Transmisi&oacute;n mecanica</ion-label>
+                    <ion-select formControlName="motorfun9" (ionChange)="blur('motorfun9', formData.value.motorfun9)">
+                        <ion-option *ngFor="let o of pointRange" value='{{o.value}}'>{{o.text}}</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+            <h2 ion-text>Observaciones escritas</h2>
+            <ion-list no-lines>
+                <ion-textarea formControlName="comentarios" rows="12" maxLength="1200" (ionBlur)="blur('comentarios', formData.value.comentarios)" placeholder="Maximo 600 caracteres." autoresize></ion-textarea>
+            </ion-list>
+            <h2 ion-text>Finalizar</h2>
+            <ion-list no-lines>
+                <ion-item>
+                    <ion-label color="primary-b" stacked>&iquest;Ha finalizado la inspecci&oacute;n?</ion-label>
+                    <ion-select formControlName="finalizar" (ionChange)="blur('finalizar', formData.value.finalizar)">
+                        <ion-option value='0'>NO</ion-option>
+                        <ion-option value='1'>SI</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+        </form>
+    </ion-content>
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Login</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-item>
+        <div text-center text-wrap>
+            Para ingresar al sistema debe registrar su correo y su contrase&ntilde;a.
+        </div>
+    </ion-item>
+    <form [formGroup]="formData">
+        <ion-item>
+            <ion-label color="primary-b" stacked>Correo</ion-label>
+            <ion-input type='email' formControlName="email" placeholder="Ej: Diego@carinspect.cl"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary-b" stacked>Contrase&ntilde;a</ion-label>
+            <ion-input type='password' formControlName="password" placeholder="Ej: 123456"></ion-input>
+        </ion-item>
+        <div text-center padding>
+            <button ion-button (click)="login()">Enviar</button>
+        </div>
+    </form>
+</ion-content>
+<ion-footer>
+    <ion-item no-lines text-center>
+        <p>v.{{appVersion}}</p>
+    </ion-item>
+</ion-footer>
+
