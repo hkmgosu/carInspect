@@ -2,7 +2,7 @@
 <widget id="io.ionic.carinspect" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>CarInspect</name>
     <description>Aplicación móvil de inspección de carros.</description>
-    <author email="diegomez13@hotmail.com" href="http://www.carinspect.cl/" />
+    <author email="erick.quiroz@live.com" href="http://www.carinspect.cl/" />
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

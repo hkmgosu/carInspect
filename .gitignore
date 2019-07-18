@@ -37,3 +37,4 @@ UserInterfaceState.xcuserstate
 # Envrionment Variables
 **/env.*
 !**/env.model.ts
+package-lock.json
